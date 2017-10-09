@@ -1,3 +1,4 @@
+=begin
 User.create!(name:  "Ivan Kravchuk",
              email: "novagidon@gmail.com",
              password:              "123456",
@@ -27,3 +28,4 @@ following = users[2..30]
 followers = users[3..20]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+=end

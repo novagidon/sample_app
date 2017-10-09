@@ -3,7 +3,6 @@ class UsersController < ApplicationController
                                         :following, :followers]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
-
   def index
     @users = User.paginate(page: params[:page])
   end
@@ -19,7 +18,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    if @user.save 
+      User.first.toggle!(:admin)
       log_in @user
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
