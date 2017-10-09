@@ -22,6 +22,11 @@ class UsersController < ApplicationController
       User.first.toggle!(:admin)
       log_in @user
       flash[:success] = "Welcome to the Sample App!"
+
+    if !(current_user.admin?)
+      User.first.follow(@user)
+    end
+
       redirect_to @user
     else
       render 'new'
