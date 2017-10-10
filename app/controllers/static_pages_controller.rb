@@ -16,4 +16,9 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  def getl
+        @micropost = current_user.microposts.build if logged_in?
+  end
+
 end
