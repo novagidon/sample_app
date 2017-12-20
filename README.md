@@ -1,1 +1,1 @@
-2
+sample app of RoR tutorial 
